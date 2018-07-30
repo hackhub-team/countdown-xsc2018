@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>2018醒狮杯智能家居赛场倒计时</title>
     <style>
+        img{
+            max-width: 100%;
+        }
+
         body {
             background-color: #ea4c4c;
             color: #fff;
         }
 
-        .wrap{
+        .wrap {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -24,7 +28,8 @@
             color: #1a1a1a;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             margin-top: 0;
             margin-bottom: 30px;
             text-align: center;
@@ -35,11 +40,11 @@
             font-size: 52px;
         }
 
-        h2{
+        h2 {
             font-size: 1200%;
         }
 
-        .footer{
+        .footer {
             position: fixed;
             bottom: 20px;
             left: 0;
@@ -47,15 +52,25 @@
             text-align: center;
         }
 
-        .footer img{
+        .footer img {
             width: 25%;
         }
 
-        
+        .header{
+            padding-top: 54px;
+            text-align: center;
+        }
+
+        .header img{
+            width: 50%;
+        }
     </style>
 </head>
 
 <body>
+    <div class="header">
+        <img src="./assets/brandings.png">
+    </div>
     <div class="wrap">
         <h1>距离作品提交时间还剩</h1>
 
@@ -66,7 +81,6 @@
         <img src="./assets/footer.png">
     </div>
     <script>
-
         (function () {
             var CountDownTimer;
 
@@ -92,7 +106,8 @@
                     hours = Math.floor(distance / _hour);
                     minutes = Math.floor((distance % _hour) / _minute);
                     seconds = Math.floor((distance % _minute) / _second);
-                    return selector.innerHTML = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+                    return selector.innerHTML = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ?
+                        "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
                 };
                 return timer = setInterval(showRemaining, 1000);
             };
