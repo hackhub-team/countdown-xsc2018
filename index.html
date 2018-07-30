@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ea4c4c;
+            color: #fff;
+        }
+
+        .wrap{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            font-weight: normal;
+            color: #fff;
+            font-size: 52px;
+        }
+
+        h2{
+            font-size: 1200%;
+        }
+
+        .footer{
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .footer img{
+            width: 25%;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>距离作品提交时间还剩</h1>
+
+        <h2 id="countdown">
+        </h2>
+    </div>
+    <div class="footer">
+        <img src="./assets/footer.png">
+    </div>
+    <script>
+
+        (function () {
+            var CountDownTimer;
+
+            CountDownTimer = function (dt, id) {
+                var _day, _hour, _minute, _second, end, selector, showRemaining, timer;
+                selector = document.getElementById(id);
+                end = new Date(dt);
+                _second = 1000;
+                _minute = _second * 60;
+                _hour = _minute * 60;
+                _day = _hour * 24;
+                showRemaining = function () {
+                    var distance, hours, minutes, now, seconds;
+                    now = new Date();
+                    distance = end - now;
+                    if (distance <= 0) {
+                        clearInterval(timer);
+                        selector.innerHTML = "时间到！";
+                        selector.style.color = "#fff";
+                        selector.style.fontSize = "500%";
+                        return;
+                    }
+                    hours = Math.floor(distance / _hour);
+                    minutes = Math.floor((distance % _hour) / _minute);
+                    seconds = Math.floor((distance % _minute) / _second);
+                    return selector.innerHTML = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+                };
+                return timer = setInterval(showRemaining, 1000);
+            };
+
+            CountDownTimer("07/31/2018 1:00 PM", "countdown");
+
+        }).call(this);
+    </script>
+</body>
+
+</html>
