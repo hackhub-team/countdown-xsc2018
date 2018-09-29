@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>2018醒狮杯智能装备赛场倒计时</title>
+    <title>Xingshi-Cup International Design Competition</title>
     <style>
         img{
             max-width: 100%;
@@ -72,7 +72,7 @@
         <img src="./assets/brandings.png?v=2.0">
     </div>
     <div class="wrap">
-        <h1>距离作品提交时间还剩</h1>
+        <!-- <h1>距离作品提交时间还剩</h1> -->
 
         <h2 id="countdown">
         </h2>
@@ -98,7 +98,7 @@
                     distance = end - now;
                     if (distance <= 0) {
                         clearInterval(timer);
-                        selector.innerHTML = "时间到！";
+                        selector.innerHTML = "Times Up!";
                         selector.style.color = "#fff";
                         selector.style.fontSize = "500%";
                         return;
@@ -112,7 +112,7 @@
                 return timer = setInterval(showRemaining, 1000);
             };
 
-            CountDownTimer("08/12/2018 1:00 PM", "countdown");
+            CountDownTimer("09/30/2018 1:00 PM", "countdown");
 
         }).call(this);
     </script>
